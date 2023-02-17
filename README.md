@@ -58,65 +58,66 @@ proxy-groups:
 
 # 分流规则  
 rules:
-- RULE-SET,AdBlock,REJECT
-- RULE-SET,Proxy,Proxy
-- RULE-SET,Apple,Apple
-- RULE-SET,Adobe,Adobe
-- RULE-SET,Amazon,Amazon
-- RULE-SET,Dler,Dler
-- RULE-SET,Facebook,Facebook 
-- RULE-SET,GitHub,GitHub
-- RULE-SET,Google,Google
-- RULE-SET,Microsoft,Microsoft
-- RULE-SET,Netflix,Netflix 
-- RULE-SET,Speedtest,Speedtest
-- RULE-SET,Steam,Steam
-- RULE-SET,Spotify,Spotify
-- RULE-SET,Telegram,Telegram 
-- RULE-SET,Twitter,Twitter 
-- RULE-SET,Tencent,Tencent
-- RULE-SET,TencentVideo,TencentVideo
-- RULE-SET,YouTube,YouTube 
-- RULE-SET,PayPal,paypal
-- RULE-SET,Discord,Discord
-- DOMAIN-SUFFIX,live.cn,China
+  - RULE-SET,AdBlock,REJECT
+  - RULE-SET,Proxy,Proxy
+  - RULE-SET,Apple,Proxy
+  - RULE-SET,Adobe,Proxy
+  - RULE-SET,Amazon,Proxy
+  - RULE-SET,Dler,Proxy
+  - RULE-SET,Facebook,Proxy
+  - RULE-SET,GitHub,Proxy
+  - RULE-SET,Google,Proxy
+  - RULE-SET,Microsoft,Proxy
+  - RULE-SET,Netflix,Proxy
+  - RULE-SET,Speedtest,Proxy
+  - RULE-SET,Steam,Proxy
+  - RULE-SET,Spotify,Proxy
+  - RULE-SET,Telegram,Proxy
+  - RULE-SET,Twitter,Proxy 
+  - RULE-SET,Tencent,Proxy
+  - RULE-SET,TencentVideo,Proxy
+  - RULE-SET,YouTube,Youtube
+  - RULE-SET,PayPal,Proxy
+  - RULE-SET,Discord,Proxy
+  - DOMAIN-SUFFIX,live.cn,Proxy
+  - DOMAIN-SUFFIX,sub.dler.io,Proxy
+  - DOMAIN-SUFFIX,api.suo.yt,Proxy
+  - DOMAIN-SUFFIX,dlercloud.com,Proxy
+  - DOMAIN-KEYWORD,dlercloud,Proxy
 
-- GEOIP,CN,DIRECT
-- MATCH,MATCH
+  - DOMAIN-SUFFIX,wps.com,DIRECT
+  - DOMAIN-SUFFIX,local,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,100.64.0.0/10,DIRECT
+  - IP-CIDR,172.13.1.32/32,DIRECT
+
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
 
 rule-providers:
-
-  AdBlock: {type: http, behavior: classical, path: ./Filter/AdBlock, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/AdBlock.yaml, interval: 3600}
-  Apple: {type: http, behavior: classical, path: ./Filter/Apple, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Apple.yaml, interval: 3600}
-  Adobe: {type: http, behavior: classical, path: ./Filter/Adobe, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Adobe.yaml, interval: 3600}
-  Amazon: {type: http, behavior: classical, path: ./Filter/Amazon, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Amazon.yaml, interval: 3600}
-
-  China: {type: http, behavior: classical, path: ./Filter/China, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/China.yaml, interval: 3600}
-
-  Dler: {type: http, behavior: classical, path: ./Filter/Dler, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Dler.yaml, interval: 3600}
-
-  Facebook: {type: http, behavior: classical, path: ./Filter/Facebook, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Facebook.yaml, interval: 3600}
-
-  GitHub: {type: http, behavior: classical, path: ./Filter/GitHub, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/GitHub.yaml, interval: 3600}
-  Google: {type: http, behavior: classical, path: ./Filter/Google, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Google.yaml, interval: 3600}
-  
-  Microsoft: {type: http, behavior: classical, path: ./Filter/Microsoft, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Microsoft.yaml, interval: 3600}
-  
-  Netflix: {type: http, behavior: classical, path: ./Filter/Netflix, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Netflix.yaml, interval: 3600}
-  
-  Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Spotify.yaml, interval: 3600}
-  Speedtest: {type: http, behavior: classical, path: ./Filter/Speedtest, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Speedtest.yaml, interval: 3600}
-  Steam: {type: http, behavior: classical, path: ./Filter/Steam, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Steam.yaml, interval: 3600}
-
-  Telegram: {type: http, behavior: classical, path: ./Filter/Telegram, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Telegram.yaml, interval: 3600}
-  Twitter: {type: http, behavior: classical, path: ./Filter/Twitter, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Twitter.yaml, interval: 3600}
-  Tencent: {type: http, behavior: classical, path: ./Filter/Tencent, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Tencent.yaml, interval: 3600}
-  TencentVideo: {type: http, behavior: classical, path: ./Filter/TencentVideo, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/TencentVideo.yaml, interval: 3600}
-
-  YouTube: {type: http, behavior: classical, path: ./Filter/YouTube, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/YouTube.yaml, interval: 3600}
-
-  PayPal: {type: http, behavior: classical, path: ./Filter/PayPal, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/PayPal.yaml, interval: 3600}
-  Discord: {type: http, behavior: classical, path: ./Filter/Discord, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Discord.yaml, interval: 3600}
-  Proxy: {type: http, behavior: classical, path: ./Filter/Proxy, url: https://cdn.jsdelivr.net/gh/Semporia/Clash-X@master/Filter/Proxy.yaml, interval: 3600}
-
+  AdBlock: {type: http, behavior: classical, path: ./Filter/AdBlock, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/AdBlock.yaml, interval: 3600}
+  Apple: {type: http, behavior: classical, path: ./Filter/Apple, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Apple.yaml, interval: 3600}
+  Adobe: {type: http, behavior: classical, path: ./Filter/Adobe, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Adobe.yaml, interval: 3600}
+  Amazon: {type: http, behavior: classical, path: ./Filter/Amazon, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Amazon.yaml, interval: 3600}
+  China: {type: http, behavior: classical, path: ./Filter/China, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/China.yaml, interval: 3600}
+  Dler: {type: http, behavior: classical, path: ./Filter/Dler, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Dler.yaml, interval: 3600}
+  Facebook: {type: http, behavior: classical, path: ./Filter/Facebook, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Facebook.yaml, interval: 3600}
+  GitHub: {type: http, behavior: classical, path: ./Filter/GitHub, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/GitHub.yaml, interval: 3600}
+  Google: {type: http, behavior: classical, path: ./Filter/Google, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Google.yaml, interval: 3600}
+  Microsoft: {type: http, behavior: classical, path: ./Filter/Microsoft, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Microsoft.yaml, interval: 3600}
+  Netflix: {type: http, behavior: classical, path: ./Filter/Netflix, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Netflix.yaml, interval: 3600}
+  Spotify: {type: http, behavior: classical, path: ./Filter/Spotify, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Spotify.yaml, interval: 3600}
+  Speedtest: {type: http, behavior: classical, path: ./Filter/Speedtest, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Speedtest.yaml, interval: 3600}
+  Steam: {type: http, behavior: classical, path: ./Filter/Steam, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Steam.yaml, interval: 3600}
+  Telegram: {type: http, behavior: classical, path: ./Filter/Telegram, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Telegram.yaml, interval: 3600}
+  Twitter: {type: http, behavior: classical, path: ./Filter/Twitter, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Twitter.yaml, interval: 3600}
+  Tencent: {type: http, behavior: classical, path: ./Filter/Tencent, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Tencent.yaml, interval: 3600}
+  TencentVideo: {type: http, behavior: classical, path: ./Filter/TencentVideo, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/TencentVideo.yaml, interval: 3600}
+  YouTube: {type: http, behavior: classical, path: ./Filter/YouTube, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/YouTube.yaml, interval: 3600}
+  PayPal: {type: http, behavior: classical, path: ./Filter/PayPal, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/PayPal.yaml, interval: 3600}
+  Discord: {type: http, behavior: classical, path: ./Filter/Discord, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Discord.yaml, interval: 3600}
+  Proxy: {type: http, behavior: classical, path: ./Filter/Proxy, url: https://raw.fastgit.org/Semporia/Clash/master/Rule/Proxy.yaml, interval: 3600}
 ```
